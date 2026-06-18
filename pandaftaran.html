@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendaftaran Siswa Baru</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .upload-zone { border: 2px dashed #94a3b8; transition: all 0.3s; }
+    .upload-zone:hover, .upload-zone.dragover { border-color: #2563eb; background: #eff6ff; }
+  </style>
+</head>
+<body class="h-full bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+  <div id="app" class="max-w-3xl mx-auto px-4 py-8">
+    
+    <div class="flex justify-start mb-6">
+      <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white shadow-md hover:shadow-lg border border-slate-200 text-slate-700 font-semibold transition-all duration-300">
+        ← Kembali ke Beranda
+      </a>
+    </div>
+
+    <div class="text-center mb-8">
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-800">Pendaftaran Siswa Baru</h1>
+      <p class="text-slate-500 mt-2 text-lg font-medium">MTS / MA Daar El-Hikam</p>
+    </div>
+
+    <form id="reg-form" class="bg-white rounded-2xl shadow-xl p-6 md:p-8 space-y-5">
+      <p class="block text-sm font-semibold text-slate-700 mb-1">Silakan isi formulir pendaftaran di bawah ini:</p>
+      
+      <div>
+        <label for="nama" class="block text-sm font-semibold text-slate-700 mb-1">Nama Lengkap</label>
+        <input type="text" id="nama" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition">
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="tempat" class="block text-sm font-semibold text-slate-700 mb-1">Tempat Lahir</label>
+          <input type="text" id="tempat" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition">
+        </div>
+        <div>
+          <label for="tgl" class="block text-sm font-semibold text-slate-700 mb-1">Tanggal Lahir</label>
+          <input type="date" id="tgl" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition">
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-1">Jenis Kelamin</label>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="gender" value="Laki-laki" required class="w-4 h-4 text-blue-600">
+            <span class="text-slate-600">Laki-laki</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="gender" value="Perempuan" class="w-4 h-4 text-blue-600">
+            <span class="text-slate-600">Perempuan</span>
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <label for="asal" class="block text-sm font-semibold text-slate-700 mb-1">Asal Sekolah</label>
+        <input type="text" id="asal" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition">
+      </div>
+
+      <div>
+        <label for="ortu" class="block text-sm font-semibold text-slate-700 mb-1">Nama Orang Tua/Wali</label>
+        <input type="text" id="ortu" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition">
+      </div>
+
+      <div>
+        <label for="telp" class="block text-sm font-semibold text-slate-700 mb-1">No. Telepon / WhatsApp</label>
+        <input type="tel" id="telp" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition">
+      </div>
+
+      <div>
+        <label for="alamat" class="block text-sm font-semibold text-slate-700 mb-1">Alamat Rumah Lengkap</label>
+        <textarea id="alamat" rows="3" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition resize-none"></textarea>
+      </div>
+
+      <!-- Upload Section Dihidupkan Kembali -->
+      <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-1">Upload Foto Ijazah / SKL (Wajib)</label>
+        <div id="upload-zone" class="upload-zone rounded-xl p-6 text-center cursor-pointer relative">
+          <input type="file" id="file-input" accept="image/*" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+          <div id="upload-placeholder">
+            <i data-lucide="upload-cloud" class="w-10 h-10 text-slate-400 mx-auto mb-2"></i>
+            <p class="text-slate-500 text-sm">Klik atau seret foto Ijazah/SKL ke sini</p>
+            <p class="text-slate-400 text-xs mt-1">Format: JPG, PNG (maks 5MB)</p>
+          </div>
+          <div id="upload-preview" class="hidden">
+            <img id="preview-img" class="max-h-48 mx-auto rounded-lg shadow" alt="Preview dokumen">
+            <p id="file-name" class="text-sm text-slate-600 mt-2"></p>
+            <button type="button" id="remove-file" class="mt-2 text-xs text-red-500 hover:text-red-700 font-medium">Hapus file</button>
+          </div>
+        </div>
+        <div class="mt-2">
+          <label class="block text-xs font-semibold text-slate-500 mb-1">Jenis Dokumen yang Diupload</label>
+          <select id="jenis-doc" required class="w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+            <option value="">-- Pilih --</option>
+            <option value="Ijazah">Ijazah</option>
+            <option value="SKL">Surat Keterangan Lulus (SKL)</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" id="save-btn" class="w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+        <i data-lucide="save" class="w-5 h-5"></i>
+        <span id="btn-text">Kirim Pendaftaran</span>
+      </button>
+    </form>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const fileInput = document.getElementById('file-input');
+    const uploadZone = document.getElementById('upload-zone');
+    const placeholder = document.getElementById('upload-placeholder');
+    const preview = document.getElementById('upload-preview');
+    const previewImg = document.getElementById('preview-img');
+    const fileName = document.getElementById('file-name');
+    let selectedFile = null;
+
+    // Logika Preview Gambar
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      if (file.size > 5 * 1024 * 1024) { alert('File terlalu besar (maks 5MB)'); return; }
+      selectedFile = file;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        previewImg.src = ev.target.result;
+        fileName.textContent = file.name;
+        placeholder.classList.add('hidden');
+        preview.classList.remove('hidden');
+      };
+      reader.readAsDataURL(file);
+    });
+
+    document.getElementById('remove-file').addEventListener('click', () => {
+      selectedFile = null;
+      fileInput.value = '';
+      preview.classList.add('hidden');
+      placeholder.classList.remove('hidden');
+    });
+
+    uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('dragover'); });
+    uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+    uploadZone.addEventListener('drop', (e) => { e.preventDefault(); uploadZone.classList.remove('dragover'); fileInput.files = e.dataTransfer.files; fileInput.dispatchEvent(new Event('change')); });
+
+    // Submit Form & Upload Otomatis
+    document.getElementById('reg-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!selectedFile) { alert('Harap pilih atau upload foto berkas terlebih dahulu!'); return; }
+
+      const btn = document.getElementById('save-btn');
+      const btnText = document.getElementById('btn-text');
+      
+      btn.disabled = true;
+      btnText.textContent = 'Mengupload berkas gambar...';
+
+      let directImageUrl = "";
+
+      // PROSES TRANSTISIONAL: Upload file ke server hosting berkas sementara (tmpfiles.org)
+      try {
+        const formData = new FormData();
+        formData.append("file", selectedFile);
+
+        const uploadResponse = await fetch("https://tmpfiles.org/api/v1/upload", {
+          method: "POST",
+          body: formData
+        });
+        const uploadData = await uploadResponse.json();
+        
+        if(uploadData.status === "success") {
+          // Mengubah link baca menjadi link unduhan langsung agar Fonnte bisa membacanya
+          directImageUrl = uploadData.data.url.replace("https://tmpfiles.org/", "https://tmpfiles.org/dl/");
+        } else {
+          throw new Error("Gagal mengupload gambar ke server berkas.");
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btnText.textContent = 'Kirim Pendaftaran';
+        alert('Gagal memproses upload foto berkas, silakan coba lagi.');
+        return;
+      }
+
+      btnText.textContent = 'Meneruskan ke WhatsApp...';
+
+      const nama = document.getElementById('nama').value.trim();
+      const tempat = document.getElementById('tempat').value.trim();
+      const tgl = document.getElementById('tgl').value;
+      const gender = document.querySelector('input[name="gender"]:checked').value;
+      const asal = document.getElementById('asal').value.trim();
+      const ortu = document.getElementById('ortu').value.trim();
+      const telp = document.getElementById('telp').value.trim();
+      const alamat = document.getElementById('alamat').value.trim();
+      const doc = document.getElementById('jenis-doc').value;
+
+      // MASUKKAN ID GRUP WHATSAPP KAMU DI SINI
+      const nomorTujuan = "120363424784245750@g.us"; 
+      
+      const pesanWA = `*PENDAFTARAN SANTRI BARU (PPDB)*\n\n` +
+                      `• Nama Lengkap: ${nama}\n` +
+                      `• TTL: ${tempat}, ${tgl}\n` +
+                      `• Jenis Kelamin: ${gender}\n` +
+                      `• Asal Sekolah: ${asal}\n` +
+                      `• Orang Tua/Wali: ${ortu}\n` +
+                      `• No. HP/WA: ${telp}\n` +
+                      `• Alamat: ${alamat}\n` +
+                      `• Lampiran Berkas: ${doc}\n\n` +
+                      `Waktu Input: ${new Date().toLocaleString('id-ID')} WIB`;
+
+      try {
+        const response = await fetch('/.netlify/functions/kirim-wa', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ target: nomorTujuan, pesan: pesanWA, urlGambar: directImageUrl })
+        });
+        
+        const data = await response.json();
+        
+        btn.disabled = false;
+        btnText.textContent = 'Kirim Pendaftaran';
+
+        if (data.success) {
+          alert('Selamat! Pendaftaran beserta foto ijazah berhasil dikirim langsung ke WhatsApp Panitia PPDB. ✅');
+          e.target.reset();
+          selectedFile = null;
+          preview.classList.add('hidden');
+          placeholder.classList.remove('hidden');
+        } else {
+          alert('Gagal mengirim ke WhatsApp: ' + data.message);
+        }
+      } catch (error) {
+        btn.disabled = false;
+        btnText.textContent = 'Kirim Pendaftaran';
+        alert('Terjadi kesalahan koneksi sistem.');
+      }
+    });
+  </script>
+</body>
+</html>

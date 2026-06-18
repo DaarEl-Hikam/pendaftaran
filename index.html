@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPDB Pondok Daar El-Hikam</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #065f46; /* Hijau Zamrud gelap */
+            --secondary-color: #d97706; /* Emas/Amber */
+            --bg-color: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* NAVBAR & MOBILE MENU */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        /* Hamburger Menu Hidden by Default on Desktop */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+        .menu a:hover {
+            color: var(--primary-color);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(6, 95, 70, 0.95), rgba(4, 120, 87, 0.95)), 
+                        url('https://www.transparenttextures.com/patterns/arabesque.png');
+            color: white;
+            padding: 100px 0 60px;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .badge {
+            background: rgba(217, 119, 6, 0.2);
+            color: #fcd34d;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 25px;
+            border: 1px solid rgba(217, 119, 6, 0.4);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            opacity: .95;
+            color: #e2e8f0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 35px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 20px rgba(217, 119, 6, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            background: #b45309;
+            box-shadow: 0 15px 25px rgba(217, 119, 6, 0.4);
+        }
+
+        /* SECTION GLOBAL */
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background: var(--secondary-color);
+            display: block;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* CARDS */
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .04);
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .visi {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            line-height: 1.8;
+        }
+
+        .misi ul {
+            padding-left: 20px;
+            list-style-type: none;
+        }
+
+        .misi li {
+            margin-bottom: 18px;
+            position: relative;
+            padding-left: 35px;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .misi li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* PANCA JIWA GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .panca-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .03);
+            transition: all .4s ease;
+            border: 1px solid #f1f5f9;
+        }
+
+        .panca-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(6, 95, 70, 0.1);
+            border-color: rgba(6, 95, 70, 0.2);
+        }
+
+        .panca-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(6, 95, 70, 0.1);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .panca-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .panca-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* MOTO */
+        .moto-wrapper {
+            background: linear-gradient(135deg, var(--primary-color), #047857), 
+                        url('https://www.transparenttextures.com/patterns/arabesque.png');
+            color: white;
+            text-align: center;
+            border-radius: 30px;
+            padding: 70px 40px;
+            box-shadow: 0 25px 50px rgba(6, 95, 70, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .moto-wrapper::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 15rem;
+            opacity: 0.1;
+            font-family: serif;
+        }
+
+        .moto-wrapper h2 {
+            margin-bottom: 25px;
+            font-size: 2rem;
+            color: #fcd34d;
+        }
+
+        .moto-wrapper p {
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #022c22;
+            color: #94a3b8;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* MEDIA QUERIES UNTUK MOBILE */
+        @media(max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .menu {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-out;
+                gap: 0;
+            }
+
+            #menu-toggle:checked ~ .menu {
+                max-height: 300px;
+            }
+
+            .menu a {
+                padding: 15px 20px;
+                border-bottom: 1px solid #f1f5f9;
+                font-size: 1.1rem;
+            }
+
+            .menu a::after {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+                min-height: 85vh;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 25px 20px;
+            }
+
+            .visi {
+                font-size: 1.1rem;
+            }
+
+            .misi li {
+                font-size: 1rem;
+            }
+
+            .moto-wrapper {
+                padding: 40px 20px;
+                border-radius: 20px;
+            }
+
+            .moto-wrapper p {
+                font-size: 1.3rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.8rem;
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                Daar <span>El-Hikam</span>
+            </div>
+
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </label>
+
+            <div class="menu">
+                <a href="#visi">Visi</a>
+                <a href="#misi">Misi</a>
+                <a href="#panca">Panca Jiwa</a>
+                <a href="#moto">Moto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="badge">PPDB Tahun 2026/2027</div>
+            <h1>Penerimaan Peserta Didik Baru</h1>
+            <p>
+                Selamat datang di Pondok Pesantren Daar El-Hikam.
+                Membentuk generasi muslim yang berilmu, berakhlak mulia,
+                mandiri, dan siap menghadapi tantangan zaman.
+            </p>
+            <a href="pendaftaran.html" class="btn">
+                Daftar Sekarang
+            </a>
+        </div>
+    </section>
+
+    <!-- VISI -->
+    <section id="visi">
+        <div class="container">
+            <div class="section-title">
+                <h2>Visi Pondok</h2>
+            </div>
+            <div class="card visi">
+                "Mewujudkan generasi unggul yang beriman, berilmu, berkarakter, dan berdaya saing global." 
+            </div>
+        </div>
+    </section>
+
+    <!-- MISI -->
+    <section id="misi">
+        <div class="container">
+            <div class="section-title">
+                <h2>Misi Pondok</h2>
+            </div>
+            <div class="card misi">
+                <ul>
+                    <li>Mengembangkan lingkungan belajar yang religius dan berakhlak mulia untuk membentuk karakter siswa yang berbasis nilai-nilai moral dan spiritual.</li>
+                    <li>Meningkatkan mutu pendidikan melalui inovasi pembelajaran berbasis teknologi dan pendekatan yang berpusat pada siswa.</li>
+                    <li>Menumbuhkan jiwa kepemimpinan dan kemandirian siswa melalui kegiatan ekstrakurikuler dan pembinaan minat bakat.</li>
+                    <li>Mendorong prestasi akademik dan non-akademik siswa hingga tingkat nasional dan internasional.</li>
+                    <li>Mewujudkan sekolah yang ramah lingkungan melalui program cinta lingkungan dan kesadaran ekologis.</li>
+                    <li>
+Memperkuat hubungan antara sekolah, keluarga, dan masyarakat dalam mendukung pengembangan potensi siswa secara optimal.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PANCA JIWA -->
+    <section id="panca">
+        <div class="container">
+            <div class="section-title">
+                <h2>Panca Jiwa Pondok</h2>
+            </div>
+            <div class="grid">
+                <div class="panca-card">
+                    <div class="panca-icon">1</div>
+                    <h3>Keikhlasan</h3>
+                    <p>Beramal dan belajar semata-mata karena Allah SWT.</p>
+                </div>
+                <div class="panca-card">
+                    <div class="panca-icon">2</div>
+                    <h3>Kesederhanaan</h3>
+                    <p>Hidup sederhana yang melahirkan kekuatan dan keteguhan jiwa.</p>
+                </div>
+                <div class="panca-card">
+                    <div class="panca-icon">3</div>
+                    <h3>Berdikari</h3>
+                    <p>Mampu berdiri di atas kemampuan sendiri tanpa bergantung kepada orang lain.</p>
+                </div>
+                <div class="panca-card">
+                    <div class="panca-icon">4</div>
+                    <h3>Ukhuwah Islamiyah</h3>
+                    <p>Membangun persaudaraan dan kebersamaan sesama muslim.</p>
+                </div>
+                <div class="panca-card">
+                    <div class="panca-icon">5</div>
+                    <h3>Kebebasan</h3>
+                    <p>Bebas berpikir dan bertindak dalam koridor syariat Islam.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOTO -->
+    <section id="moto">
+        <div class="container">
+            <div class="moto-wrapper">
+                <h2>Moto Pondok</h2>
+                <p>
+                    "Berbudi Tinggi, Berbadan Sehat,<br>
+                    Berpengetahuan Luas, dan Berpikiran Bebas"
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Siap Menjadi Bagian dari Daar El-Hikam?</h2>
+            <a href="pendaftaran.html" class="btn">
+                Mulai Pendaftaran
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Pondok Pesantren Daar El-Hikam. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
