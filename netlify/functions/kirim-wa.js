@@ -7,7 +7,7 @@ exports.handler = async function(event, context) {
         const body = JSON.parse(event.body);
         const target = body.target;
         const pesan = body.pesan;
-        const urlGambar = body.urlGambar; // Menerima link foto yang diupload dari form
+        const urlGambar = body.urlGambar; // Menerima link foto dari HTML
 
         let nomorHP = target;
         if (target.includes('@s.whatsapp.net')) {
@@ -21,9 +21,9 @@ exports.handler = async function(event, context) {
             countryCode: '62' 
         };
 
-        // Jika pendaftar menyertakan foto, masukkan parameter url media ke Fonnte
+        // 🛠️ PERBAIKAN DI SINI: Fonnte membaca parameter 'file', bukan 'url'
         if (urlGambar) {
-            payload.url = urlGambar;
+            payload.file = urlGambar; 
         }
 
         const response = await fetch('https://api.fonnte.com/send', {
