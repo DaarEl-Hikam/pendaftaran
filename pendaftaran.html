@@ -411,7 +411,7 @@
 
   <script src="/_sdk/element_sdk.js"></script>
   <script src="/_sdk/data_sdk.js"></script>
-  <script>
+<script>
     try {
       // Element SDK
       const defaultConfig = {
@@ -466,11 +466,11 @@
     } catch (e) { console.warn("Sistem SDK tidak dimuat (Abaikan ini jika membuka dari lokal PC)"); }
 
     // ==========================================
-    // SISTEM AI PENGECEK KEASLIAN FILE (PRODUKSI)
+    // SISTEM PENGECEK KEASLIAN FILE (PRODUKSI)
     // Tersambung ke /.netlify/functions/cek-gambar
     // ==========================================
     async function periksaFileAI(file, namaDokumen) {
-      showToast(`🤖 AI sedang memindai ${namaDokumen} (membutuhkan waktu)...`);
+      showToast(`🔍 Sistem sedang memindai ${namaDokumen} (membutuhkan waktu)...`);
 
       return new Promise((resolve) => {
         // 1. Ubah file gambar menjadi format teks (Base64) agar bisa dikirim ke API
@@ -490,18 +490,18 @@
 
             const hasil = await response.json();
             
-            // 3. Kembalikan hasil dari AI ke formulir
+            // 3. Kembalikan hasil dari sistem ke formulir
             resolve({ 
               status: hasil.status, 
               pesan: hasil.status ? `${namaDokumen}: ${hasil.pesan}` : `Maaf data tidak sesuai. ${namaDokumen} ${hasil.pesan}`
             });
 
           } catch (error) {
-            console.error("AI Error:", error);
+            console.error("System Error:", error);
             // Jika API sedang down/error, kita loloskan agar pendaftar tetap bisa mendaftar
             resolve({ 
               status: true, 
-              pesan: `${namaDokumen} dilewati (Server AI sedang sibuk).` 
+              pesan: `${namaDokumen} dilewati (Sistem sedang sibuk).` 
             });
           }
         };
@@ -527,7 +527,7 @@
         if (!file) return;
         if (file.size > 5 * 1024 * 1024) { showToast('File terlalu besar (maks 5MB)', true); return; }
         
-        // --- PROSES AI ---
+        // --- PROSES VALIDASI SISTEM ---
         const tombolSimpan = document.getElementById('save-btn');
         if (tombolSimpan) tombolSimpan.disabled = true;
 
@@ -544,7 +544,7 @@
           return; 
         }
         showToast('✅ ' + hasilAI.pesan);
-        // --- AKHIR PROSES AI ---
+        // --- AKHIR PROSES VALIDASI ---
 
         selectedFile = file;
         const reader = new FileReader();
@@ -570,7 +570,7 @@
     }
 
     // ==========================================
-    // PENGECEKAN AI UNTUK DOKUMEN LAINNYA
+    // PENGECEKAN SISTEM UNTUK DOKUMEN LAINNYA
     // ==========================================
     const dokumenLainnya = [
       { id: 'file-kk', label: 'Kartu Keluarga' },
@@ -763,7 +763,6 @@
     // Fungsi membuka modal
     function openPaymentModal() {
       const payBtn = document.getElementById('pay-btn');
-      // Jangan buka jika tombol sedang dinonaktifkan oleh sistem gelombang tutup
       if (payBtn.disabled || payBtn.classList.contains('cursor-not-allowed')) return;
 
       modal.classList.remove('hidden');
@@ -771,7 +770,7 @@
         modalContent.classList.remove('scale-95', 'opacity-0');
         modalContent.classList.add('scale-100', 'opacity-100');
       }, 10);
-      lucide.createIcons(); // render ulang icon di dalam modal
+      lucide.createIcons(); 
     }
 
     // Fungsi menutup modal
@@ -780,29 +779,25 @@
       modalContent.classList.add('scale-95', 'opacity-0');
       setTimeout(() => {
         modal.classList.add('hidden');
-      }, 300); // durasi animasi
+      }, 300); 
     }
 
-    // Fitur tutup otomatis jika menyentuh/klik area luar (background gelap)
     modal.addEventListener('click', function (e) {
       if (e.target === modal) {
         closePaymentModal();
       }
     });
 
-    // Fitur Salin Rekening
     function copyRekening(elementId, btnId) {
       const textToCopy = document.getElementById(elementId).innerText;
       navigator.clipboard.writeText(textToCopy).then(() => {
         const btnSpan = document.getElementById(btnId);
         const originalText = btnSpan.innerText;
 
-        // Ubah warna dan teks tombol jadi sukses
         btnSpan.innerText = 'Tersalin!';
         btnSpan.parentElement.classList.replace('bg-indigo-100', 'bg-emerald-100');
         btnSpan.parentElement.classList.replace('text-indigo-700', 'text-emerald-700');
 
-        // Kembalikan seperti semula setelah 2 detik
         setTimeout(() => {
           btnSpan.innerText = originalText;
           btnSpan.parentElement.classList.replace('bg-emerald-100', 'bg-indigo-100');
@@ -817,7 +812,7 @@
   </script>
 </body>
 <!-- Floating WhatsApp Button -->
-<a href="https://wa.me/6285129490962" target="_blank" rel="noopener noreferrer"
+<a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer"
   class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white p-3 rounded-full shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center group"
   title="Hubungi Admin via WhatsApp">
   <svg class="w-8 h-8 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24"

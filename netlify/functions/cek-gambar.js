@@ -38,10 +38,10 @@ exports.handler = async function(event, context) {
             // Jika aman
             return { 
                 statusCode: 200, 
-                body: JSON.stringify({ status: true, pesan: 'Lolos verifikasi keamanan AI.' }) 
+                body: JSON.stringify({ status: true, pesan: 'Lolos verifikasi keamanan berkas.' }) 
             };
         } else {
-            return { statusCode: 400, body: JSON.stringify({ status: false, pesan: 'AI Gagal memproses gambar.' }) };
+            return { statusCode: 400, body: JSON.stringify({ status: false, pesan: 'sistem Gagal memproses gambar.' }) };
         }
     } catch (error) {
         return { statusCode: 500, body: JSON.stringify({ status: false, pesan: 'Server Error: ' + error.message }) };
