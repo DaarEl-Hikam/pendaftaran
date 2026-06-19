@@ -8,25 +8,61 @@
   <title>Pendaftaran Siswa Baru</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+    rel="stylesheet">
   <style>
-    * { font-family: 'Plus Jakarta Sans', sans-serif; }
-    .back-btn { transition: all .3s ease; }
-    .back-btn:hover { transform: translateY(-2px); }
-    .upload-zone { border: 2px dashed #94a3b8; transition: all 0.3s; }
-    .upload-zone:hover, .upload-zone.dragover { border-color: #2563eb; background: #eff6ff; }
-    .toast { animation: slideUp 0.4s ease; }
-    @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    body { box-sizing: border-box; }
+    * {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .back-btn {
+      transition: all .3s ease;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .upload-zone {
+      border: 2px dashed #94a3b8;
+      transition: all 0.3s;
+    }
+
+    .upload-zone:hover,
+    .upload-zone.dragover {
+      border-color: #2563eb;
+      background: #eff6ff;
+    }
+
+    .toast {
+      animation: slideUp 0.4s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    body {
+      box-sizing: border-box;
+    }
   </style>
 </head>
 
 <body class="h-full">
   <div id="app" class="h-full w-full overflow-auto bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
     <div class="max-w-3xl mx-auto px-4 py-8">
-      
+
       <div class="flex justify-start mb-6">
-        <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white shadow-md hover:shadow-lg border border-slate-200 text-slate-700 font-semibold transition-all duration-300">
+        <a href="index.html"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white shadow-md hover:shadow-lg border border-slate-200 text-slate-700 font-semibold transition-all duration-300">
           ← Kembali ke Beranda
         </a>
       </div>
@@ -35,7 +71,8 @@
         <h1 id="form-title" class="text-2xl md:text-3xl font-extrabold text-slate-800">
           Pendaftaran Siswa Baru
         </h1>
-        <img src="OIP.png" alt="Logo Daar El-Hikam" class="w-32 h-32 md:w-40 md:h-40 mx-auto object-contain drop-shadow-lg mb-4">
+        <img src="OIP.png" alt="Logo Daar El-Hikam"
+          class="w-32 h-32 md:w-40 md:h-40 mx-auto object-contain drop-shadow-lg mb-4">
         <p id="school-name" class="text-slate-500 mt-2 text-lg font-medium">
           MTS / MA Daar El-Hikam
         </p>
@@ -44,31 +81,36 @@
       <form id="reg-form" class="bg-white rounded-2xl shadow-xl p-6 md:p-8 space-y-5">
         <div>
           <p class="block text-sm font-semibold text-slate-700 mb-3">Silakan isi formulir pendaftaran di bawah ini:</p>
-          
+
           <label for="gelombang" class="block text-sm font-600 text-slate-700 mb-1">Gelombang Pendaftaran</label>
-          <select id="gelombang" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition mb-4">
+          <select id="gelombang" required
+            class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition mb-4">
             <option value="">-- Pilih Gelombang --</option>
             <option value="Gelombang 1">Gelombang 1</option>
             <option value="Gelombang 2">Gelombang 2</option>
           </select>
 
           <label for="nama" class="block text-sm font-600 text-slate-700 mb-1">Nama Lengkap</label>
-          <input type="text" id="nama" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+          <input type="text" id="nama" required
+            class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
         </div>
 
         <div>
           <label for="nisn" class="block text-sm font-600 text-slate-700 mb-1">NISN (Nomor Induk Siswa Nasional)</label>
-          <input type="text" id="nisn" required placeholder="Masukkan 10 digit NISN" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+          <input type="text" id="nisn" required placeholder="Masukkan 10 digit NISN"
+            class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label for="tempat" class="block text-sm font-600 text-slate-700 mb-1">Tempat Lahir</label>
-            <input type="text" id="tempat" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+            <input type="text" id="tempat" required
+              class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
           </div>
           <div>
             <label for="tgl" class="block text-sm font-600 text-slate-700 mb-1">Tanggal Lahir</label>
-            <input type="date" id="tgl" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+            <input type="date" id="tgl" required
+              class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
           </div>
         </div>
 
@@ -88,28 +130,33 @@
 
         <div>
           <label for="asal" class="block text-sm font-600 text-slate-700 mb-1">Asal Sekolah</label>
-          <input type="text" id="asal" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+          <input type="text" id="asal" required
+            class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
         </div>
 
         <div>
           <label for="ortu" class="block text-sm font-600 text-slate-700 mb-1">Nama Orang Tua/Wali</label>
-          <input type="text" id="ortu" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+          <input type="text" id="ortu" required
+            class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
         </div>
 
         <div>
           <label for="telp" class="block text-sm font-600 text-slate-700 mb-1">No. Telepon</label>
-          <input type="tel" id="telp" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+          <input type="tel" id="telp" required
+            class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
         </div>
 
         <div>
           <label for="alamat" class="block text-sm font-600 text-slate-700 mb-1">Alamat</label>
-          <textarea id="alamat" rows="3" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition resize-none"></textarea>
+          <textarea id="alamat" rows="3" required
+            class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition resize-none"></textarea>
         </div>
 
         <div>
           <label class="block text-sm font-600 text-slate-700 mb-1">Upload Foto Ijazah / SKL</label>
           <div id="upload-zone" class="upload-zone rounded-xl p-6 text-center cursor-pointer relative">
-            <input type="file" id="file-input" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+            <input type="file" id="file-input" accept="image/*"
+              class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
             <div id="upload-placeholder">
               <i data-lucide="upload-cloud" class="w-10 h-10 text-slate-400 mx-auto mb-2"></i>
               <p class="text-slate-500 text-sm">Klik atau seret foto Ijazah/SKL ke sini</p>
@@ -118,12 +165,14 @@
             <div id="upload-preview" class="hidden">
               <img id="preview-img" class="max-h-48 mx-auto rounded-lg shadow" alt="Preview dokumen">
               <p id="file-name" class="text-sm text-slate-600 mt-2"></p>
-              <button type="button" id="remove-file" class="mt-2 text-xs text-red-500 hover:text-red-700 font-medium">Hapus file</button>
+              <button type="button" id="remove-file"
+                class="mt-2 text-xs text-red-500 hover:text-red-700 font-medium">Hapus file</button>
             </div>
           </div>
           <div class="mt-2">
             <label class="block text-xs font-500 text-slate-500 mb-1">Jenis Dokumen</label>
-            <select id="jenis-doc" required class="w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+            <select id="jenis-doc" required
+              class="w-full px-4 py-2 rounded-lg border border-slate-200 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
               <option value="">-- Pilih --</option>
               <option value="Ijazah">Ijazah</option>
               <option value="SKL">Surat Keterangan Lulus (SKL)</option>
@@ -133,42 +182,146 @@
 
         <div class="bg-blue-50/50 p-5 rounded-xl border border-blue-100 space-y-4">
           <h3 class="text-sm font-bold text-blue-800 flex items-center gap-2">
-            <i data-lucide="paperclip" class="w-4 h-4"></i> Berkas Tambahan (Wajib Gambar/Foto)
+            <i data-lucide="paperclip" class="w-4 h-4"></i> Berkas yang Harus Diunggah (Wajib Gambar/Foto)
           </h3>
-          
+
           <div>
-            <label for="file-kk" class="block text-xs font-semibold text-slate-700 mb-1">1. Foto Kartu Keluarga (KK)</label>
-            <input type="file" id="file-kk" accept="image/*" required class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+            <label for="file-kk" class="block text-xs font-semibold text-slate-700 mb-1">1. Foto Kartu Keluarga
+              (KK)</label>
+            <input type="file" id="file-kk" accept="image/*" required
+              class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
           </div>
 
           <div>
-            <label for="file-pasfoto" class="block text-xs font-semibold text-slate-700 mb-1">2. Pass Foto Calon Santri</label>
-            <input type="file" id="file-pasfoto" accept="image/*" required class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+            <label for="file-pasfoto" class="block text-xs font-semibold text-slate-700 mb-1">2. Pass Foto Calon
+              Santri</label>
+            <input type="file" id="file-pasfoto" accept="image/*" required
+              class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
           </div>
 
           <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-4 my-4">
             <h4 class="text-sm font-bold text-indigo-800 flex items-center gap-2 mb-2">
               <i data-lucide="credit-card" class="w-4 h-4"></i> Selesaikan Pembayaran Pendaftaran
             </h4>
-            <p class="text-xs text-slate-600 mb-3">Klik tombol di bawah ini untuk membayar biaya pendaftaran (link akan terbuka di tab baru agar data formulir Anda tidak hilang). Setelah berhasil, *screenshot* bukti pembayarannya dan unggah di kolom nomor 3.</p>
-            
-            <a id="pay-btn" href="https://tripay.co.id/checkout/KODE-LINK-ANDA" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-lg transition shadow-md">
-              <i data-lucide="external-link" class="w-4 h-4"></i> Bayar Pendaftaran Sekarang
-            </a>
+            <p class="text-xs text-slate-600 mb-3">Klik tombol di bawah ini untuk membayar biaya pendaftaran dengan
+              nominal rp 200.000.00 . Setelah berhasil, *screenshot* bukti transfer. adapun untuk biaya lanjutan bisa
+              kalian menghubungi admin dengan cara mengklik logo whatsapp. </p>
+
+            <button type="button" id="pay-btn" onclick="openPaymentModal()"
+              class="flex items-center justify-center gap-2 w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-lg transition shadow-md">
+              <i data-lucide="wallet" class="w-4 h-4"></i> Lihat Rekening Pembayaran
+            </button>
           </div>
 
+          <div id="payment-modal"
+            class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm transition-opacity">
+            <div id="payment-modal-content"
+              class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden transform scale-95 opacity-0 transition-all duration-300">
+
+              <div class="bg-indigo-600 px-6 py-4 flex justify-between items-center">
+                <h3 class="text-white font-bold text-lg">Informasi Transfer Manual</h3>
+                <button type="button" onclick="closePaymentModal()" class="text-indigo-200 hover:text-white transition">
+                  <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+              </div>
+
+              <div class="px-6 py-6 max-h-[70vh] overflow-y-auto">
+                <p class="text-sm text-slate-600 mb-4">Silakan transfer biaya pendaftaran ke salah satu rekening di
+                  bawah ini atas nama <strong class="text-slate-800">NADA FARHA AULIA</strong>.</p>
+
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-4">
+                  <div class="flex justify-between items-center mb-1">
+                    <span class="text-xs font-bold text-slate-500 uppercase">Bank Mandiri</span>
+                  </div>
+                  <div class="flex justify-between items-center mt-1">
+                    <span id="rek-mandiri" class="text-xl font-bold tracking-wider text-slate-800">1760003147129</span>
+                    <button type="button" onclick="copyRekening('rek-mandiri', 'btn-copy-mandiri')"
+                      class="flex items-center gap-1 text-xs font-semibold bg-indigo-100 text-indigo-700 px-3 py-1.5 rounded-lg hover:bg-indigo-200 transition">
+                      <i data-lucide="copy" class="w-3 h-3"></i> <span id="btn-copy-mandiri">Salin</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-6">
+                  <div class="flex justify-between items-center mb-1">
+                    <span class="text-xs font-bold text-slate-500 uppercase">Bank BCA</span>
+                  </div>
+                  <div class="flex justify-between items-center mt-1">
+                    <span id="rek-bca" class="text-xl font-bold tracking-wider text-slate-800">6090475400</span>
+                    <button type="button" onclick="copyRekening('rek-bca', 'btn-copy-bca')"
+                      class="flex items-center gap-1 text-xs font-semibold bg-indigo-100 text-indigo-700 px-3 py-1.5 rounded-lg hover:bg-indigo-200 transition">
+                      <i data-lucide="copy" class="w-3 h-3"></i> <span id="btn-copy-bca">Salin</span>
+                    </button>
+                  </div>
+                </div>
+
+                <h4 class="font-bold text-slate-800 mb-3 border-b border-slate-200 pb-2 text-sm">Tutorial Pembayaran
+                  Akurat</h4>
+                <div class="space-y-4 text-sm text-slate-600">
+
+                  <div class="bg-white border border-slate-100 rounded-lg p-3">
+                    <p class="font-semibold text-slate-700 mb-1 text-xs">📱 M-Banking Mandiri (Livin')</p>
+                    <ol class="list-decimal pl-5 space-y-1 text-xs">
+                      <li>Buka aplikasi Livin' by Mandiri.</li>
+                      <li>Pilih menu <strong>Transfer</strong> > <strong>Transfer ke Penerima Baru</strong>.</li>
+                      <li>Pilih <strong>Bank Mandiri</strong>, masukkan nomor <strong>1760003147129</strong>.</li>
+                      <li>Pastikan nama penerima <strong>NADA FARHA AULIA</strong>, klik Lanjutkan.</li>
+                      <li>Masukkan nominal, konfirmasi PIN, lalu <strong>Screenshot resi</strong>.</li>
+                    </ol>
+                  </div>
+
+                  <div class="bg-white border border-slate-100 rounded-lg p-3">
+                    <p class="font-semibold text-slate-700 mb-1 text-xs">📱 BCA mobile (m-BCA)</p>
+                    <ol class="list-decimal pl-5 space-y-1 text-xs">
+                      <li>Buka m-BCA. Pilih <strong>m-Transfer</strong> > <strong>Daftar Antar Rekening</strong>.</li>
+                      <li>Masukkan nomor <strong>6090475400</strong>, pastikan nama <strong>NADA FARHA AULIA</strong>,
+                        lalu Send.</li>
+                      <li>Kembali ke <strong>m-Transfer</strong>, pilih <strong>Transfer Antar Rekening</strong>.</li>
+                      <li>Pilih rekening yang didaftarkan, masukkan nominal, konfirmasi PIN, lalu <strong>Screenshot
+                          resi</strong>.</li>
+                    </ol>
+                  </div>
+
+                  <div class="bg-white border border-slate-100 rounded-lg p-3">
+                    <p class="font-semibold text-slate-700 mb-1 text-xs">🏧 Bank Lain / e-Wallet (DANA, OVO, GoPay)</p>
+                    <ol class="list-decimal pl-5 space-y-1 text-xs">
+                      <li>Pilih menu <strong>Transfer ke Bank Lain</strong>.</li>
+                      <li>Pilih Bank tujuan (Mandiri/BCA) dan masukkan nomor rekening di atas.</li>
+                      <li>Masukkan nominal. Di halaman konfirmasi, pastikan nama penerima <strong>NADA FARHA
+                          AULIA</strong>.</li>
+                      <li>Selesaikan transaksi dan <strong>Screenshot/Foto struk bukti transfer</strong>.</li>
+                    </ol>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="bg-slate-50 px-6 py-4 border-t border-slate-200">
+                <button type="button" onclick="closePaymentModal()"
+                  class="w-full py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-lg transition text-sm">Tutup
+                  & Lanjut Upload Bukti</button>
+              </div>
+
+            </div>
+          </div>
+
+
           <div>
-            <label for="file-bukti-tf" class="block text-xs font-semibold text-slate-700 mb-1">3. Bukti Transfer Biaya Formulir Pendaftaran</label>
-            <input type="file" id="file-bukti-tf" accept="image/*" required class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+            <label for="file-bukti-tf" class="block text-xs font-semibold text-slate-700 mb-1">3. Bukti Transfer Biaya
+              Formulir Pendaftaran</label>
+            <input type="file" id="file-bukti-tf" accept="image/*" required
+              class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
           </div>
         </div>
 
-        <button type="submit" id="save-btn" class="w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-700 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2">
+        <button type="submit" id="save-btn"
+          class="w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-700 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2">
           <i data-lucide="save" class="w-5 h-5"></i> <span id="btn-text">Simpan Pendaftaran</span>
         </button>
       </form>
 
-      <div id="toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-6 py-3 rounded-xl shadow-2xl toast font-medium">
+      <div id="toast"
+        class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-6 py-3 rounded-xl shadow-2xl toast font-medium">
       </div>
     </div>
   </div>
@@ -214,11 +367,11 @@
           gelombangSelect.style.backgroundColor = "#fee2e2";
           gelombangSelect.style.color = "#dc2626";
           gelombangSelect.style.cursor = "not-allowed";
-          
+
           saveBtn.disabled = true;
           saveBtn.classList.remove('from-blue-600', 'to-indigo-600', 'hover:from-blue-700', 'hover:to-indigo-700');
           saveBtn.classList.add('from-slate-400', 'to-slate-500', 'cursor-not-allowed');
-          if(btnText) btnText.textContent = "Pendaftaran Telah Tertutup";
+          if (btnText) btnText.textContent = "Pendaftaran Telah Tertutup";
 
           if (payBtn) {
             payBtn.removeAttribute('href');
@@ -227,9 +380,9 @@
             payBtn.classList.add('bg-slate-400', 'cursor-not-allowed');
             // Menambahkan ikon gembok agar terlihat benar-benar dikunci
             payBtn.innerHTML = '<i data-lucide="lock" class="w-4 h-4"></i> Pembayaran Ditutup';
-            if(window.lucide) { lucide.createIcons(); }
+            if (window.lucide) { lucide.createIcons(); }
           }
-          
+
           // Kunci semua inputan agar tidak bisa diklik
           const formElements = document.querySelectorAll('#reg-form input, #reg-form textarea, #reg-form select');
           formElements.forEach(el => {
@@ -275,7 +428,7 @@
         document.querySelector('form').style.backgroundColor = t('surface_color');
         document.getElementById('form-title').style.color = t('text_color');
         const btn = document.getElementById('save-btn');
-        if(btn) btn.style.background = `linear-gradient(to right, ${t('primary_action')}, ${t('secondary_action')})`;
+        if (btn) btn.style.background = `linear-gradient(to right, ${t('primary_action')}, ${t('secondary_action')})`;
         document.body.style.fontFamily = `${t('font_family')}, sans-serif`;
         document.body.style.fontSize = `${t('font_size')}px`;
       }
@@ -304,7 +457,54 @@
       // Data SDK
       let recordCount = 0;
       window.dataSdk.init({ onDataChanged(data) { recordCount = data.length; } });
-    } catch(e) { console.warn("Sistem SDK tidak dimuat (Abaikan ini jika membuka dari lokal PC)"); }
+    } catch (e) { console.warn("Sistem SDK tidak dimuat (Abaikan ini jika membuka dari lokal PC)"); }
+
+    // ==========================================
+    // SISTEM AI PENGECEK KEASLIAN FILE (PRODUKSI)
+    // Tersambung ke /.netlify/functions/cek-gambar
+    // ==========================================
+    async function periksaFileAI(file, namaDokumen) {
+      showToast(`🤖 AI sedang memindai ${namaDokumen} (membutuhkan waktu)...`);
+
+      return new Promise((resolve) => {
+        // 1. Ubah file gambar menjadi format teks (Base64) agar bisa dikirim ke API
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        
+        reader.onloadend = async () => {
+          const base64String = reader.result;
+
+          try {
+            // 2. Tembak ke Backend Netlify milik kita sendiri
+            const response = await fetch('/.netlify/functions/cek-gambar', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ image: base64String })
+            });
+
+            const hasil = await response.json();
+            
+            // 3. Kembalikan hasil dari AI ke formulir
+            resolve({ 
+              status: hasil.status, 
+              pesan: hasil.status ? `${namaDokumen}: ${hasil.pesan}` : `Maaf data tidak sesuai. ${namaDokumen} ${hasil.pesan}`
+            });
+
+          } catch (error) {
+            console.error("AI Error:", error);
+            // Jika API sedang down/error, kita loloskan agar pendaftar tetap bisa mendaftar
+            resolve({ 
+              status: true, 
+              pesan: `${namaDokumen} dilewati (Server AI sedang sibuk).` 
+            });
+          }
+        };
+
+        reader.onerror = () => {
+          resolve({ status: false, pesan: "Gagal membaca file gambar." });
+        };
+      });
+    }
 
     // File upload Ijazah
     const fileInput = document.getElementById('file-input');
@@ -315,11 +515,31 @@
     const fileName = document.getElementById('file-name');
     let selectedFile = null;
 
-    if(fileInput && uploadZone) {
-      fileInput.addEventListener('change', (e) => {
+    if (fileInput && uploadZone) {
+      fileInput.addEventListener('change', async (e) => {
         const file = e.target.files[0];
         if (!file) return;
         if (file.size > 5 * 1024 * 1024) { showToast('File terlalu besar (maks 5MB)', true); return; }
+        
+        // --- PROSES AI ---
+        const tombolSimpan = document.getElementById('save-btn');
+        if (tombolSimpan) tombolSimpan.disabled = true;
+
+        const hasilAI = await periksaFileAI(file, "Ijazah/SKL");
+
+        if (tombolSimpan) tombolSimpan.disabled = false;
+
+        if (!hasilAI.status) {
+          showToast(hasilAI.pesan, true);
+          fileInput.value = ''; 
+          selectedFile = null;
+          preview.classList.add('hidden');
+          placeholder.classList.remove('hidden');
+          return; 
+        }
+        showToast('✅ ' + hasilAI.pesan);
+        // --- AKHIR PROSES AI ---
+
         selectedFile = file;
         const reader = new FileReader();
         reader.onload = (ev) => {
@@ -343,20 +563,53 @@
       uploadZone.addEventListener('drop', (e) => { e.preventDefault(); uploadZone.classList.remove('dragover'); fileInput.files = e.dataTransfer.files; fileInput.dispatchEvent(new Event('change')); });
     }
 
+    // ==========================================
+    // PENGECEKAN AI UNTUK DOKUMEN LAINNYA
+    // ==========================================
+    const dokumenLainnya = [
+      { id: 'file-kk', label: 'Kartu Keluarga' },
+      { id: 'file-pasfoto', label: 'Pas Foto' },
+      { id: 'file-bukti-tf', label: 'Bukti Transfer' }
+    ];
+
+    dokumenLainnya.forEach(doc => {
+      const inputEl = document.getElementById(doc.id);
+      if (inputEl) {
+        inputEl.addEventListener('change', async (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+
+          const tombolSimpan = document.getElementById('save-btn');
+          if (tombolSimpan) tombolSimpan.disabled = true;
+
+          const hasilAI = await periksaFileAI(file, doc.label);
+
+          if (tombolSimpan) tombolSimpan.disabled = false;
+
+          if (!hasilAI.status) {
+            showToast(hasilAI.pesan, true);
+            inputEl.value = ''; // Kosongkan file jika ditolak
+          } else {
+            showToast('✅ ' + hasilAI.pesan);
+          }
+        });
+      }
+    });
+
     // Form submit
     const regForm = document.getElementById('reg-form');
-    if(regForm) {
+    if (regForm) {
       regForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const fileKK = document.getElementById('file-kk').files[0];
         const filePasFoto = document.getElementById('file-pasfoto').files[0];
         const fileBuktiTf = document.getElementById('file-bukti-tf').files[0];
 
         if (!selectedFile) { showToast('Harap upload foto Ijazah/SKL', true); return; }
         if (!fileKK || !filePasFoto || !fileBuktiTf) { showToast('Harap lengkapi seluruh berkas wajib!', true); return; }
-        
-        try { if (recordCount >= 999) { showToast('Batas pendaftaran tercapai', true); return; } } catch(err) {}
+
+        try { if (recordCount >= 999) { showToast('Batas pendaftaran tercapai', true); return; } } catch (err) { }
 
         const btn = document.getElementById('save-btn');
         const btnText = document.getElementById('btn-text');
@@ -380,7 +633,7 @@
         }
 
         let urlIjazah = "", urlKK = "", urlPasFoto = "", urlBuktiTf = "";
-        
+
         try {
           urlIjazah = await uploadFileKeCloud(selectedFile, "Foto Ijazah/SKL");
           urlKK = await uploadFileKeCloud(fileKK, "Kartu Keluarga");
@@ -432,31 +685,31 @@
             showToast('Gagal menyimpan data ke database sistem.', true);
             return;
           }
-        } catch(e) {
+        } catch (e) {
           console.warn("SDK Database gagal diproses (Mode Lokal)");
         }
 
         btnText.textContent = 'Meneruskan ke WhatsApp...';
-        const nomorTujuan = "120363424784245750@g.us"; 
-        
+        const nomorTujuan = "120363424784245750@g.us";
+
         const pesanWA = `*PENDAFTARAN SANTRI BARU (PPDB)*\n` +
-                        `*MTS / MA DAAR EL-HIKAM*\n\n` +
-                        `• *Gelombang*: ${gelombang}\n` +
-                        `• *Nama Lengkap*: ${nama}\n` +
-                        `• *NISN*: ${nisn}\n` +
-                        `• *TTL*: ${tempat}, ${tgl}\n` +
-                        `• *Jenis Kelamin*: ${gender ? gender.value : ''}\n` +
-                        `• *Asal Sekolah*: ${asal}\n` +
-                        `• *Orang Tua/Wali*: ${ortu}\n` +
-                        `• *No. HP/WA*: ${telp}\n` +
-                        `• *Alamat*: ${alamat}\n` +
-                        `• *Lampiran Utama*: ${doc}\n\n` +
-                        `*🔗 LINK BERKAS ONLINE (KLIK UNTUK LIHAT):*\n` +
-                        `📸 Pass Foto: ${urlPasFoto}\n` +
-                        `📄 Kartu Keluarga (KK): ${urlKK}\n` +
-                        `🎓 Ijazah/SKL: ${urlIjazah}\n` +
-                        `💸 Bukti Transfer Formulir: ${urlBuktiTf}\n\n` +
-                        `Waktu Input: ${new Date().toLocaleString('id-ID')} WIB`;
+          `*MTS / MA DAAR EL-HIKAM*\n\n` +
+          `• *Gelombang*: ${gelombang}\n` +
+          `• *Nama Lengkap*: ${nama}\n` +
+          `• *NISN*: ${nisn}\n` +
+          `• *TTL*: ${tempat}, ${tgl}\n` +
+          `• *Jenis Kelamin*: ${gender ? gender.value : ''}\n` +
+          `• *Asal Sekolah*: ${asal}\n` +
+          `• *Orang Tua/Wali*: ${ortu}\n` +
+          `• *No. HP/WA*: ${telp}\n` +
+          `• *Alamat*: ${alamat}\n` +
+          `• *Lampiran Utama*: ${doc}\n\n` +
+          `*🔗 LINK BERKAS ONLINE (KLIK UNTUK LIHAT):*\n` +
+          `📸 Pass Foto: ${urlPasFoto}\n` +
+          `📄 Kartu Keluarga (KK): ${urlKK}\n` +
+          `🎓 Ijazah/SKL: ${urlIjazah}\n` +
+          `💸 Bukti Transfer Formulir: ${urlBuktiTf}\n\n` +
+          `Waktu Input: ${new Date().toLocaleString('id-ID')} WIB`;
 
         try {
           const response = await fetch('/.netlify/functions/kirim-wa', {
@@ -464,9 +717,9 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ target: nomorTujuan, pesan: pesanWA, urlGambar: urlBuktiTf })
           });
-          
+
           const data = await response.json();
-          
+
           btn.disabled = false;
           btnText.textContent = 'Simpan Pendaftaran';
 
@@ -495,8 +748,77 @@
       setTimeout(() => toast.classList.add('hidden'), 3000);
     }
 
+    // ==========================================
+    // LOGIKA MODAL PEMBAYARAN MANUAL & COPY TEXT
+    // ==========================================
+    const modal = document.getElementById('payment-modal');
+    const modalContent = document.getElementById('payment-modal-content');
+
+    // Fungsi membuka modal
+    function openPaymentModal() {
+      const payBtn = document.getElementById('pay-btn');
+      // Jangan buka jika tombol sedang dinonaktifkan oleh sistem gelombang tutup
+      if (payBtn.disabled || payBtn.classList.contains('cursor-not-allowed')) return;
+
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modalContent.classList.remove('scale-95', 'opacity-0');
+        modalContent.classList.add('scale-100', 'opacity-100');
+      }, 10);
+      lucide.createIcons(); // render ulang icon di dalam modal
+    }
+
+    // Fungsi menutup modal
+    function closePaymentModal() {
+      modalContent.classList.remove('scale-100', 'opacity-100');
+      modalContent.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300); // durasi animasi
+    }
+
+    // Fitur tutup otomatis jika menyentuh/klik area luar (background gelap)
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        closePaymentModal();
+      }
+    });
+
+    // Fitur Salin Rekening
+    function copyRekening(elementId, btnId) {
+      const textToCopy = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const btnSpan = document.getElementById(btnId);
+        const originalText = btnSpan.innerText;
+
+        // Ubah warna dan teks tombol jadi sukses
+        btnSpan.innerText = 'Tersalin!';
+        btnSpan.parentElement.classList.replace('bg-indigo-100', 'bg-emerald-100');
+        btnSpan.parentElement.classList.replace('text-indigo-700', 'text-emerald-700');
+
+        // Kembalikan seperti semula setelah 2 detik
+        setTimeout(() => {
+          btnSpan.innerText = originalText;
+          btnSpan.parentElement.classList.replace('bg-emerald-100', 'bg-indigo-100');
+          btnSpan.parentElement.classList.replace('text-emerald-700', 'text-indigo-700');
+        }, 2000);
+      }).catch(err => {
+        alert('Gagal menyalin, silakan salin secara manual.');
+      });
+    }
+
     lucide.createIcons();
   </script>
 </body>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer"
+  class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white p-3 rounded-full shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center group"
+  title="Hubungi Admin via WhatsApp">
+  <svg class="w-8 h-8 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.128.552 4.148 1.545 5.927L.135 23.322l5.525-1.447a11.96 11.96 0 0 0 6.371 1.834c6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zM12.031 21.688c-1.803 0-3.535-.487-5.068-1.402l-.363-.217-3.766.986.999-3.669-.239-.379a9.92 9.92 0 0 1-1.532-5.352c0-5.496 4.475-9.971 9.971-9.971 5.496 0 9.971 4.475 9.971 9.971 0 5.496-4.475 9.971-9.971 9.971zM17.498 14.24c-.3-.151-1.776-.877-2.052-.977-.276-.1-.477-.151-.678.151-.201.302-.777.977-.953 1.178-.176.201-.352.226-.653.075-2.221-1.11-3.626-2.584-4.542-4.168-.176-.301.077-.45.228-.6.136-.135.302-.352.453-.528.151-.176.201-.302.302-.503.1-.201.05-.377-.025-.528-.075-.151-.678-1.632-.928-2.234-.242-.582-.487-.503-.678-.513-.176-.01-.377-.01-.578-.01-.201 0-.528.075-.804.377-.276.302-1.054 1.031-1.054 2.513s1.079 2.915 1.23 3.116c.151.201 2.122 3.238 5.14 4.542 1.956.843 2.76.804 3.313.679.623-.14 1.776-.728 2.027-1.432.251-.703.251-1.306.176-1.432-.075-.125-.276-.201-.578-.352z" />
+  </svg>
+</a>
 
 </html>
